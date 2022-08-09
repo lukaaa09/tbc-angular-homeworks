@@ -87,7 +87,7 @@ export class CurencyConverterComponent implements OnInit {
       console.log(this.firstCurrency, this.secondCurrency)
       if (this.firstCurrency && this.secondCurrency && typeof val === "number"){
         console.log(3);
-        this.getData(this.firstCurrent, this.secondCurrent, val, 'second');
+        this.getData(this.secondCurrent, this.firstCurrent, val, 'second');
       }
     });
   }
