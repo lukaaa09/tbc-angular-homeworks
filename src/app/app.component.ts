@@ -1,6 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { passwordValidator } from './password-validator';
+import { CurencyConverterComponent } from './curency-converter/curency-converter.component';
+import { ExchangeCurrencyService } from './exchange-currency.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +11,11 @@ import { passwordValidator } from './password-validator';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  constructor(private http: HttpClient, private exchangeCurrencyService: ExchangeCurrencyService) {
+  }
+ 
+
+
   title = 'angular-homeworks';
   formGroup = new FormGroup<any>('')
   itemInArr: any[] = []
@@ -16,6 +24,7 @@ export class AppComponent {
 
 
   ngOnInit(): void {
+
     this.formGroup = new FormGroup({
       email: new FormControl('', [Validators.email, Validators.required]),
       password: new FormControl('', [Validators.required, Validators.pattern("[A-Za-z0-9]+"), Validators.minLength(7)]),
@@ -60,6 +69,5 @@ export class AppComponent {
     this.updateBtn = false
 
   }
-
 }
 
