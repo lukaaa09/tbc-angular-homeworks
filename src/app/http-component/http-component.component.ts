@@ -23,7 +23,7 @@ export class HttpComponentComponent implements OnInit {
   currentEmployee: Employee | null = null;
   employeePages = 3;
   ativeBtn = false;
-  displayBtn = false;
+  displayBtn = true;
 
   constructor(private myServise: HttpServiceService, private http: HttpClient) { }
 
@@ -34,24 +34,25 @@ export class HttpComponentComponent implements OnInit {
   public getAll() {
     this.myServise.getData().pipe(
       tap((data) => {
-        if(data.length - 1 > this.employeePages &&  !this.ativeBtn){
-          this.displayBtn = true;
-          this.employees = data.filter((value, index) => index <= this.employeePages);
-        }else if(data.length > this.employeePages && this.ativeBtn){
-          this.employeePages += 4;
-          if (data.length - 1 > this.employeePages ){
-            this.displayBtn = true;
-            this.employees = data.filter((value, index) => index <= this.employeePages);
-          }else {
-            this.displayBtn = false;
-            this.employeePages = data.length - 1;
-            this.employees = data.filter((value, index) => index <= this.employeePages);
-          }
-        }
-        else{
-          this.displayBtn = false;
-          this.employees = data;
-        }
+        this.employees = data
+        // if(data.length - 1 > this.employeePages &&  !this.ativeBtn){
+        //   this.displayBtn = true;
+        //   this.employees = data.filter((value, index) => index <= this.employeePages);
+        // }else if(data.length > this.employeePages && this.ativeBtn){
+        //   this.employeePages += 4;
+        //   if (data.length - 1 > this.employeePages ){
+        //     this.displayBtn = true;
+        //     this.employees = data.filter((value, index) => index <= this.employeePages);
+        //   }else {
+        //     this.displayBtn = false;
+        //     this.employeePages = data.length - 1;
+        //     this.employees = data.filter((value, index) => index <= this.employeePages);
+        //   }
+        // }
+        // else{
+        //   this.displayBtn = false;
+        //   this.employees = data;
+        // }
       })
 
     ).subscribe()
@@ -104,8 +105,9 @@ export class HttpComponentComponent implements OnInit {
   }
 
   public showMoreButton() {
-    this.ativeBtn = true;
+    this.myServise.pageLimit += 4;
     this.getAll()
+  
   }
 
 
