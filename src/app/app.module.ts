@@ -7,11 +7,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CurencyConverterComponent } from './curency-converter/curency-converter.component';
+import { HttpComponentComponent } from './http-component/http-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CurencyConverterComponent
+    CurencyConverterComponent,
+    HttpComponentComponent
   ],
   imports: [
     BrowserModule,

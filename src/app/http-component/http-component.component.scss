@@ -1,0 +1,30 @@
+.container {
+    background-color: aqua;
+    width: 270px;
+    height: 130px;
+    box-shadow: 6px 11px 38px 3px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 6px 11px 38px 3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 6px 11px 38px 3px rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+ 
+    span {
+       font-size: 17px;
+       font-family: Verdana, Geneva, Tahoma, sans-serif;
+       color: darkred;
+       margin-left: 5px;
+       margin-top: 30px;
+    }
+    button {
+        font-size: 17px;
+        cursor: pointer;
+        color: rebeccapurple;
+        background-color: rgb(253, 253, 253);
+        border: 1px solid red;
+        width: 70px;
+        margin-top: 45px;
+        margin-left: 3px;
+        border-radius: 5px;
+     }
+}

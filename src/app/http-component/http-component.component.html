@@ -1,0 +1,30 @@
+<form [formGroup]="loginForm">
+    Name: <input type="text" formControlName="name" required>
+    <br>
+    <br>
+    Age: <input type="number" formControlName="age" required>
+    <br>
+    <br>
+    Salary: <input type="number" formControlName="salary" required>
+    <br>
+    <br>
+    <ng-container *ngIf="updateBtn">
+        <button (click)="updateUser()">Update</button>
+      </ng-container>
+      <ng-container *ngIf="!updateBtn">
+        <button (click)="onClickRequest()">Register</button>
+      </ng-container></form>
+<ng-container *ngFor="let employee of employees, index as i">
+    <div class="container">
+        <div><span>Name:</span> {{employee.name}}</div>
+        <div> <span>Age:</span> {{employee.age}}</div>
+        <div><span>Salary:</span> {{employee.salary}}</div>
+      <div class="button">
+        <button (click)="editUser(employee.id)">Edit</button>
+        <button (click)="deleteEmployee(employee.id)">delete</button>
+      </div>
+    </div>
+</ng-container>
+<ng-container *ngIf="displayBtn">
+    <button (click)="showMoreButton()">Show More</button>
+</ng-container>
