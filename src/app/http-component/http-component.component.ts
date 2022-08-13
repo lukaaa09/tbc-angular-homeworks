@@ -23,7 +23,7 @@ export class HttpComponentComponent implements OnInit {
   currentEmployee: Employee | null = null;
   employeePages = 3;
   ativeBtn = false;
-  displayBtn = true;
+  displayBtn = false;
 
   constructor(private myServise: HttpServiceService, private http: HttpClient) { }
 
@@ -35,49 +35,27 @@ export class HttpComponentComponent implements OnInit {
     this.myServise.getData().pipe(
       tap((data) => {
         this.employees = data
-        // if(data.length - 1 > this.employeePages &&  !this.ativeBtn){
-        //   this.displayBtn = true;
-        //   this.employees = data.filter((value, index) => index <= this.employeePages);
-        // }else if(data.length > this.employeePages && this.ativeBtn){
-        //   this.employeePages += 4;
-        //   if (data.length - 1 > this.employeePages ){
-        //     this.displayBtn = true;
-        //     this.employees = data.filter((value, index) => index <= this.employeePages);
-        //   }else {
-        //     this.displayBtn = false;
-        //     this.employeePages = data.length - 1;
-        //     this.employees = data.filter((value, index) => index <= this.employeePages);
-        //   }
-        // }
-        // else{
-        //   this.displayBtn = false;
-        //   this.employees = data;
-        // }
+
       })
 
     ).subscribe()
   }
 
   public onClickRequest() {
-    this.myServise.postRequest(this.loginForm.value).subscribe((employee: Employee) => {
-      this.employees.push(employee);
-    })
-    this.getAll()
+    this.myServise.postRequest(this.loginForm.value).subscribe(  _ => {
+      if(this.employees.length < 4)  this.getAll()
+    } 
+    )
+    this.displayBtn = true
+    console.log(this.employees.length)
+    // this.getAll()
     //  this.myServise.postRequest(this.loginForm.value).subscribe()
     //  setTimeout(() => {
     //   this.getAll()
     //  }, 500);
   }
   public editUser(id?: number) {
-    // this.myServise.getId(id).pipe(
-    //   tap((data) => {
-    //     console.log(data)
-    //     this.loginForm.get("name")?.setValue(data.name);
-    //     this.loginForm.get("age")?.setValue(data.age);
-    //     this.loginForm.get("salary")?.setValue(data.salary);
 
-    //   })
-    // ).subscribe()
     this.currentEmployee = <Employee>this.employees.find(employee => employee.id === id)
     this.loginForm.get("name")?.setValue((<Employee>this.currentEmployee).name);
     this.loginForm.get("age")?.setValue((<Employee>this.currentEmployee).age);
@@ -106,8 +84,10 @@ export class HttpComponentComponent implements OnInit {
 
   public showMoreButton() {
     this.myServise.pageLimit += 4;
-    this.getAll()
-  
+    this.getAll()    
+  }
+  public get shouldShawMore() {
+    return this.employees.length > 0 || this.displayBtn 
   }
 
 
