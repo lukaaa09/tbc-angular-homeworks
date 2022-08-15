@@ -56,11 +56,16 @@ export class HttpComponentComponent implements OnInit {
   }
   public editUser(id?: number) {
 
-    this.currentEmployee = <Employee>this.employees.find(employee => employee.id === id)
-    this.loginForm.get("name")?.setValue((<Employee>this.currentEmployee).name);
-    this.loginForm.get("age")?.setValue((<Employee>this.currentEmployee).age);
-    this.loginForm.get("salary")?.setValue((<Employee>this.currentEmployee).salary);
-    this.updateBtn = true
+    this.myServise.getId(id).pipe(
+      tap(employee => {
+        this.currentEmployee = employee
+        this.loginForm.get("name")?.setValue((<Employee>this.currentEmployee).name);
+        this.loginForm.get("age")?.setValue((<Employee>this.currentEmployee).age);
+        this.loginForm.get("salary")?.setValue((<Employee>this.currentEmployee).salary);
+        this.updateBtn = true
+      })
+    ).subscribe()
+
   }
   public updateUser() {
     this.myServise.updateEmployee((<Employee>this.currentEmployee).id, this.loginForm.value).subscribe(updatedUser => {
@@ -89,7 +94,4 @@ export class HttpComponentComponent implements OnInit {
   public get shouldShawMore() {
     return this.employees.length > 0 || this.displayBtn 
   }
-
-
-
 }

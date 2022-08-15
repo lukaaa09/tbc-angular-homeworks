@@ -18,7 +18,7 @@ export class HttpServiceService {
   public getData(): Observable<Employee[]> {
     return this.http.get<Employee[]>(`${this.baseUrl}/employees?_limit=${this.pageLimit}`)
   }
-  public getId(id: number): Observable<Employee> {
+  public getId(id?: number): Observable<Employee> {
     return this.http.get<Employee>(`${this.baseUrl}/employees/${id}`)
   }
   public updateEmployee(id: number | undefined, employee: any): Observable<Employee> {
