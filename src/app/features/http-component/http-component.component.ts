@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { HttpServiceService } from '../http-service.service';
+import { HttpServiceService } from '../../core/services/http-service.service';
 import { HttpClient } from '@angular/common/http';
-import { Employee } from '../login-interface';
+import { Employee } from './interfaces/login-interface';
 import { map, tap } from 'rxjs';
 
 
@@ -12,7 +12,7 @@ import { map, tap } from 'rxjs';
   styleUrls: ['./http-component.component.scss']
 })
 export class HttpComponentComponent implements OnInit {
-  loginForm = new FormGroup({
+  loginForm = new FormGroup({ 
     name: new FormControl('', Validators.required),
     age: new FormControl(0, Validators.required),
     salary: new FormControl(0, Validators.required)

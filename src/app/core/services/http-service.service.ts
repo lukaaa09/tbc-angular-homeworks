@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Employee } from './login-interface';
+import { Employee } from '../../features/http-component/interfaces/login-interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpServiceService {
-  private baseUrl = "http://localhost:3000";
+  public baseUrl = "http://localhost:3000";
   pageLimit = 4;
 
   constructor(private http: HttpClient) { }

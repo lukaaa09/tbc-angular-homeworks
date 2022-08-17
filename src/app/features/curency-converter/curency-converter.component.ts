@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ExchangeCurrencyService } from '../exchange-currency.service';
+import { ExchangeCurrencyService } from '../../core/services/exchange-currency.service';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 

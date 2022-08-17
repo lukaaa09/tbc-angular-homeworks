@@ -54,5 +54,18 @@
       "salary": 0,
       "id": 9
     }
+  ],
+  "users": [
+    {
+      "email": "test@mail.ru",
+      "password": "$2a$10$noEvnJyJYgRhBO4.mkjnPOYxCMNZRAX13V56094Uz5wAD.cEpoTBO",
+      "confirmPassword": "1234567",
+      "Nickname": "nicknane",
+      "phoneNumber": "+995123456789",
+      "salary": 1,
+      "website": "be.ge",
+      "checkbox": true,
+      "id": 4
+    }
   ]
 }

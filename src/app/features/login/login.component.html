@@ -1,0 +1,48 @@
+<h1>Login</h1>
+<form [formGroup]="loginForm" class="login-form">
+    email: <input type="email" formControlName="email" required>
+    password: <input type="password" formControlName="password" required>
+    <button (click)="login()">login</button>
+</form>
+
+<h1>Register</h1>
+<div class="container">
+    <form [formGroup]="formGroup">
+
+      E-mail: <input type="email" class="item" formControlName="email" required>
+
+      <br>
+
+      Password: <input type="password" class="item item1" formControlName="password" required>
+
+      <br>
+
+      Confirm Password: <input type="password" class="item" formControlName="confirmPassword" required>
+
+      <br>
+
+      Nickname: <input type="text" class="item" formControlName="Nickname" required>
+
+      <br>
+
+      Phone Number: <input type="tel" class="item" formControlName="phoneNumber" required>
+
+      <br>
+
+      
+      Salary: <input type="number" class="item" formControlName="salary" required>
+
+      <br>
+
+      Website: <input class="item" formControlName="website" required>
+
+      <br>
+
+      <input type="checkbox" class="box" formControlName="checkbox" required>
+      <span class="agreement-span">"I have read the"</span> <a class="agreement-link" href="https://www.google.com/"> agreement</a>
+
+      <br>
+      <br>
+      <button [disabled]="formGroup.invalid" (click)="register()">Register</button>
+    </form>
+  </div>

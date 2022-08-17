@@ -1,0 +1,67 @@
+<div class="container">
+  <form [formGroup]="formGroup">
+
+    E-mail: <input type="email" class="item" formControlName="email" required>
+
+    <br>
+
+    Password: <input type="password" class="item item1" formControlName="password" required>
+
+    <br>
+
+    Confirm Password: <input type="password" class="item" formControlName="confirmPassword" required>
+
+    <br>
+
+    Nickname: <input type="text" class="item" formControlName="Nickname" required>
+
+    <br>
+
+    Phone Number: <input type="tel" class="item" formControlName="phoneNumber" required>
+
+    <br>
+
+    Salary: <input type="number" class="item" formControlName="salary" required>
+
+    <br>
+
+    Website: <input class="item" formControlName="website" required>
+
+    <br>
+
+    <input type="checkbox" class="box" formControlName="checkbox" required>
+    <span class="agreement-span">"I have read the"</span> <a class="agreement-link" href="https://www.google.com/"> agreement</a>
+
+    <br>
+    <br>
+    <button [disabled]="formGroup.invalid" (click)="updateUser()">Update</button>
+  </form>
+
+  <div class="users-container">
+    <div class="person" *ngFor="let item of itemInArr; index as i">
+      <h1>Data of User</h1>
+      <div>
+        <span>Gmail:</span>{{item.email}}
+      </div>
+      <div>
+        <span>password:</span> {{item.confirmPassword}}
+      </div>
+      <div>
+        <span>Nickname:</span> {{item.Nickname}}
+      </div>
+      <div>
+        <span>phone:</span> {{item.phoneNumber}}
+      </div>
+      <div>
+        <span>salary:</span> {{item.salary}}₾
+      </div>
+      <div>
+        <span>website:</span> {{item.website}}
+      </div>
+      <div class="btn-container">
+        <button (click)="updateForm(item)" class="edit" *ngIf="loggedUserID === item.id.toString()">Edit</button>
+        <button (click)="delete(item.id)" class="edit1" *ngIf="loggedUserID === item.id.toString()">Delete </button>
+      </div>
+    </div>
+  </div>
+</div>
