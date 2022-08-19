@@ -31,28 +31,10 @@
       "id": 5
     },
     {
-      "name": "6",
-      "age": 0,
-      "salary": 0,
+      "name": "ika",
+      "age": 11000,
+      "salary": 10000,
       "id": 6
-    },
-    {
-      "name": "7",
-      "age": 0,
-      "salary": 0,
-      "id": 7
-    },
-    {
-      "name": "8",
-      "age": 0,
-      "salary": 0,
-      "id": 8
-    },
-    {
-      "name": "321321",
-      "age": 0,
-      "salary": 0,
-      "id": 9
     }
   ],
   "users": [
@@ -66,6 +48,17 @@
       "website": "be.ge",
       "checkbox": true,
       "id": 4
+    },
+    {
+      "email": "guram@gmail.com",
+      "password": "$2a$10$JTbTEHqMfRcparKrU0n..OTJU3h7AgIkX5N1WyQFlpNEACqi2A5CW",
+      "confirmPassword": "1234567",
+      "Nickname": "lllkkkkkk",
+      "phoneNumber": "+995577239116",
+      "salary": 250,
+      "website": "gol.com",
+      "checkbox": true,
+      "id": 5
     }
   ]
 }

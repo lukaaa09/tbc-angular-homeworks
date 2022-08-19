@@ -13,9 +13,6 @@ import { UserService } from 'src/app/core/services/user.service';
 })
 export class LoginComponent implements OnInit {
   formGroup = new FormGroup<any>('')
-  itemInArr: any[] = []
-  updateBtn: boolean = false
-  userDataIndex: number = 0;
 
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.email, Validators.required]),
