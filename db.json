@@ -2,8 +2,8 @@
   "employees": [
     {
       "name": "112",
-      "age": 0,
-      "salary": 0,
+      "age": 10,
+      "salary": 309,
       "id": 1
     },
     {
@@ -50,15 +50,48 @@
       "id": 4
     },
     {
-      "email": "guram@gmail.com",
-      "password": "$2a$10$JTbTEHqMfRcparKrU0n..OTJU3h7AgIkX5N1WyQFlpNEACqi2A5CW",
-      "confirmPassword": "1234567",
-      "Nickname": "lllkkkkkk",
+      "email": "kkurtanidzeluka09@gmail.com",
+      "password": "$2a$10$EDNbv9Mc15UVxmI81K5ncOrVX1mkXsPOEy7ct90iCt0ni42RA4Rn2",
+      "confirmPassword": "lukacho09",
+      "Nickname": "lukks",
       "phoneNumber": "+995577239116",
-      "salary": 250,
+      "salary": 17500,
+      "website": "ng.ge",
+      "checkbox": true,
+      "id": 6
+    },
+    {
+      "email": "luks@gmail.com",
+      "password": "$2a$10$WoS.Qi8/PboUeaXoU58Nx.AgQUD0WUfhVaIXpgXNkuf/mea7Pxwti",
+      "confirmPassword": "lukacho09",
+      "Nickname": "jidjiw",
+      "phoneNumber": "+995577239116",
+      "salary": 9999999122,
       "website": "gol.com",
       "checkbox": true,
-      "id": 5
+      "id": 7
+    },
+    {
+      "email": "an@gmail.com",
+      "password": "$2a$10$gaKv0lBycSUaBLiHRXbabOrxYBWpUdrhaXl1w7pNhjG.qiP6JHUha",
+      "confirmPassword": "lukaluka",
+      "Nickname": "klklk",
+      "phoneNumber": "+995577239116",
+      "salary": 100,
+      "website": "tbc.ge",
+      "checkbox": true,
+      "id": 8
+    },
+    {
+      "email": "nikush@gmailcom",
+      "password": "$2a$10$kvorZzIwkUK41wGKVoVnEuxGzFF.Xx305R8g7fs4XPXaQEC0j1KWu",
+      "confirmPassword": "nikanika",
+      "Nickname": "mdjsnikoasnko",
+      "phoneNumber": "+995123123123",
+      "salary": 800,
+      "website": "lo.com",
+      "checkbox": true,
+      "id": 9
     }
   ]
 }

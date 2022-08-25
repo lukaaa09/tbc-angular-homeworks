@@ -24,6 +24,7 @@ export class HttpComponentComponent implements OnInit {
   employeePages = 3;
   ativeBtn = false;
   displayBtn = false;
+  str = 'test'
 
   constructor(private myServise: HttpServiceService, private http: HttpClient) { }
 
@@ -93,5 +94,9 @@ export class HttpComponentComponent implements OnInit {
   }
   public get shouldShawMore() {
     return this.employees.length > 0 || this.displayBtn 
+  }
+   
+  tittle() {
+    this.str = 'luka'
   }
 }
