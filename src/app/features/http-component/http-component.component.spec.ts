@@ -22,13 +22,21 @@ describe('HttpComponentComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('#str should be equal to string test', _ => {
+  it('#str should be equal to string luka', () => {
     component.tittle()
     expect(component.str).toEqual('luka')
   })
-  it('ngOnInit  should call get method', _ => {
+  it('ngOnInit  should call get method', () => {
     const spy = spyOn(component, 'getAll')
     component.showMoreButton()
     expect(spy).toHaveBeenCalled()
+  })
+  it('ngoninit  should call get method', () => {
+    const spy = spyOn(component, 'getAll')
+    component.ngOnInit()
+    expect(spy).toHaveBeenCalled()
+  })
+  it('#employees page should be 3', () => {
+     expect(component.employeePages).toEqual(3)
   })
 });

@@ -25,18 +25,19 @@ export class CurencyConverterComponent implements OnInit {
     'SHP', 'SLE', 'SOS', 'SRD', 'SSP', 'STN', 'SYP', 'SZL', 'THB', 'TJS', 'TMT', 'TND', 'TOP',
     'TRY', 'TTD', 'TVD', 'TWD', 'TZS', 'UAH', 'UGX', 'USD', 'UYU', 'UZS', 'VES', 'VND', 'VUV',
     'WST', 'XAF', 'XCD', 'XDR', 'XOF', 'XPF', 'YER', 'ZAR', 'ZMW', 'ZWL']
-    firstCurrency = false;
-    secondCurrency = false;
-    firstCurrent = 'null';
-    secondCurrent = 'null'
+  firstCurrency = false;
+  secondCurrency = false;
+  firstCurrent = 'null';
+  secondCurrent = 'null'
 
 
   constructor(private myService: ExchangeCurrencyService) { }
-  public getData(FC:string, SC:string, amount: number, pos:string) {
-   return this.myService.getRequest(FC, SC).subscribe( value => {
-    this.setData(value.conversion_rate, amount, pos);
-   })
+  public getData(FC: string, SC: string, amount: number, pos: string) {
+    return this.myService.getRequest(FC, SC).subscribe(value => {
+      this.setData(value.conversion_rate, amount, pos);
+    })
   }
+
 
   ngOnInit(): void {
     this.formGroup1 = new FormGroup({
@@ -47,49 +48,49 @@ export class CurencyConverterComponent implements OnInit {
     });
     this.onChanges();
   }
-  private setData(rate: number, amount: number, pos: string){
-    if (pos === 'first'){
-      this.formGroup1.get('secondAmount')?.setValue((rate * amount).toFixed(4), {emitEvent: false});
+  private setData(rate: number, amount: number, pos: string) {
+    if (pos === 'first') {
+      this.formGroup1.get('secondAmount')?.setValue((rate * amount).toFixed(4), { emitEvent: false });
 
-    }else if(pos === 'second'){
-      this.formGroup1.get('firstAmount')?.setValue((rate * amount).toFixed(4), {emitEvent: false});
+    } else if (pos === 'second') {
+      this.formGroup1.get('firstAmount')?.setValue((rate * amount).toFixed(4), { emitEvent: false });
     }
   }
-  public onChanges(){
+  public onChanges() {
     this.formGroup1.get('first_c')?.valueChanges.subscribe(val => {
-      if(this.arrayOfAmmount.includes(val.toUpperCase())){
+      if (this.arrayOfAmmount.includes(val.toUpperCase())) {
         this.firstCurrency = true;
         this.firstCurrent = val.toUpperCase();
         console.log(1)
-      }else{
+      } else {
         this.firstCurrency = false;
         this.secondCurrent = 'null';
       }
     })
     this.formGroup1.get('second_c')?.valueChanges.subscribe(val => {
-      if(this.arrayOfAmmount.includes(val.toUpperCase())){
+      if (this.arrayOfAmmount.includes(val.toUpperCase())) {
         this.secondCurrency = true;
         this.secondCurrent = val.toUpperCase();
         console.log(2)
-      }else{
+      } else {
         this.secondCurrency = false;
         this.secondCurrent = 'null';
       }
     });
     this.formGroup1.get('firstAmount')?.valueChanges.subscribe(val => {
       console.log(this.firstCurrency, this.secondCurrency)
-      if (this.firstCurrency && this.secondCurrency && typeof val === "number"){
+      if (this.firstCurrency && this.secondCurrency && typeof val === "number") {
         console.log(3);
         this.getData(this.firstCurrent, this.secondCurrent, val, 'first');
       }
     });
     this.formGroup1.get('secondAmount')?.valueChanges.subscribe(val => {
       console.log(this.firstCurrency, this.secondCurrency)
-      if (this.firstCurrency && this.secondCurrency && typeof val === "number"){
+      if (this.firstCurrency && this.secondCurrency && typeof val === "number") {
         console.log(3);
         this.getData(this.secondCurrent, this.firstCurrent, val, 'second');
       }
     });
   }
-  }
+}
 
